@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mn">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AiFarm/Poker — Private AI For Serious Players</title>
+<title>AiFarm/Poker — Мэргэжлийн тоглогчдод зориулсан хувийн AI</title>
 
 <!-- Meta Pixel Code -->
 <script>
@@ -25,7 +25,7 @@ src="https://www.facebook.com/tr?id=1649922472903512&ev=PageView&noscript=1"
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&family=Noto+Sans:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -47,7 +47,7 @@ src="https://www.facebook.com/tr?id=1649922472903512&ev=PageView&noscript=1"
 *{box-sizing:border-box; margin:0; padding:0}
 html,body{
   background:var(--bg); color:var(--ink); 
-  font-family:'Inter', sans-serif; 
+  font-family:'Noto Sans', sans-serif; 
   -webkit-font-smoothing:antialiased; 
   overflow-x:hidden;
   min-height:100vh;
@@ -82,26 +82,29 @@ html,body{
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.7'/></svg>");
 }
 
-/* Decorative mongolian-inspired geometric ornament background */
-.ornament{
+/* Background giant word — left side */
+.bg-word-left{
   position:fixed; 
-  left:50%; top:50%;
-  transform:translate(-50%, -50%);
-  width:min(90vw, 1100px); height:min(90vw, 1100px);
+  left:-40px; top:50%;
+  transform:translateY(-50%);
+  font-family:'Noto Serif', serif; font-weight:900;
+  font-size:clamp(180px, 22vw, 360px);
+  line-height:.85;
+  color:rgba(36,48,68,.13);
   pointer-events:none; z-index:-1;
-  opacity:.08;
+  letter-spacing:-10px;
+  user-select:none;
 }
 
-/* Background giant word */
-.bg-word{
+/* Background giant word — right side */
+.bg-word-right{
   position:fixed; 
-  right:-60px; bottom:-100px;
-  font-family:'Cormorant Garamond', serif; font-weight:700; font-style:italic;
-  font-size:clamp(280px, 36vw, 580px);
+  right:-30px; bottom:-80px;
+  font-family:'Noto Serif', serif; font-weight:900;
+  font-size:clamp(160px, 20vw, 320px);
   line-height:.85;
-  color:rgba(36,48,68,.14);
+  color:rgba(182,255,60,.04);
   pointer-events:none; z-index:-1;
-  letter-spacing:-15px;
   user-select:none;
 }
 
@@ -115,7 +118,7 @@ html,body{
   border-bottom:1px solid rgba(36,48,68,.4);
 }
 .brand-name{
-  font-family:'Cormorant Garamond', serif; font-weight:700; font-size:24px; letter-spacing:1px;
+  font-family:'Noto Serif', serif; font-weight:700; font-size:22px; letter-spacing:1.5px;
   position:relative;
   display:inline-flex; align-items:center; gap:2px;
   padding-left:20px;
@@ -165,15 +168,15 @@ html,body{
 /* Side vertical labels */
 .vlabel-left{
   position:fixed; left:24px; top:50%; transform:translateY(-50%);
-  writing-mode:vertical-rl; text-orientation:mixed;
   font-family:'JetBrains Mono', monospace; font-size:10px;
   letter-spacing:6px; color:var(--ink-mute);
   text-transform:uppercase;
+  writing-mode:vertical-rl;
   z-index:2;
 }
 .vlabel-right{
   position:fixed; right:24px; top:50%; transform:translateY(-50%);
-  writing-mode:vertical-rl; text-orientation:mixed;
+  writing-mode:vertical-rl;
   font-family:'JetBrains Mono', monospace; font-size:10px;
   letter-spacing:6px; color:var(--ink-mute);
   text-transform:uppercase;
@@ -202,22 +205,20 @@ html,body{
 }
 
 h1.hero-title{
-  font-family:'Cormorant Garamond', serif;
-  font-weight:700;
-  font-size: clamp(56px, 8.5vw, 132px);
-  line-height:.95;
-  letter-spacing:-2px;
+  font-family:'Noto Serif', serif;
+  font-weight:800;
+  font-size: clamp(48px, 7.5vw, 116px);
+  line-height:1.02;
+  letter-spacing:-1px;
   margin-bottom:36px;
 }
-h1.hero-title .top-line{
+h1.hero-title .jp-large{
   display:block;
   background: linear-gradient(180deg, #ffffff 0%, #9fb1c8 100%);
   -webkit-background-clip:text; background-clip:text; color:transparent;
-  font-style:normal;
 }
 h1.hero-title .accent{
   display:inline-block; color:var(--neon);
-  font-style:italic; font-weight:600;
   text-shadow: 0 0 50px rgba(182,255,60,.5);
   position:relative;
 }
@@ -226,13 +227,24 @@ h1.hero-title .accent::after{
   background:linear-gradient(90deg, transparent, var(--neon), transparent);
 }
 
+.en-tag{
+  font-family:'JetBrains Mono', monospace;
+  font-size:14px; letter-spacing:6px; color:var(--ink-mute);
+  text-transform:uppercase; margin-bottom:44px;
+  display:inline-flex; align-items:center; gap:18px;
+}
+.en-tag::before,
+.en-tag::after{
+  content:""; width:50px; height:1px; background:var(--ink-mute);
+}
+
 .subhead{
-  font-family:'Inter', sans-serif; font-weight:300;
-  font-size: clamp(17px, 1.4vw, 22px);
-  line-height:1.7; color:var(--ink-dim);
+  font-family:'Noto Sans', sans-serif; font-weight:300;
+  font-size: clamp(16px, 1.35vw, 20px);
+  line-height:1.85; color:var(--ink-dim);
   max-width:760px;
   margin:0 auto 64px;
-  letter-spacing:.2px;
+  letter-spacing:.3px;
 }
 .subhead strong{color:var(--ink); font-weight:500}
 
@@ -243,8 +255,8 @@ h1.hero-title .accent::after{
   padding:38px 76px;
   background:var(--neon);
   color:#03060a;
-  font-family:'Inter', sans-serif; font-weight:900;
-  font-size:26px; letter-spacing:2px;
+  font-family:'Noto Sans', sans-serif; font-weight:900;
+  font-size:28px; letter-spacing:3px;
   text-decoration:none;
   border:none;
   position:relative;
@@ -272,9 +284,9 @@ h1.hero-title .accent::after{
 }
 .cta-arrow{
   font-family:'JetBrains Mono', monospace; font-weight:700;
-  font-size:30px;
+  font-size:32px;
 }
-.cta-sub{
+.cta-jp-sub{
   display:block; margin-top:18px;
   font-family:'JetBrains Mono', monospace; font-size:12px;
   letter-spacing:4px; color:var(--ink-mute); text-transform:uppercase;
@@ -335,21 +347,24 @@ h1.hero-title .accent::after{
 }
 @media (max-width: 640px){
   .topbar{padding:18px 20px}
-  .brand-name{font-size:20px}
+  .brand-name{font-size:18px}
   .hero{padding:120px 20px 50px}
   .hero-frame{display:none}
   .eyebrow{font-size:10px; padding:9px 16px; margin-bottom:36px}
   h1.hero-title{margin-bottom:24px}
+  .en-tag{font-size:11px; letter-spacing:4px; margin-bottom:32px}
+  .en-tag::before, .en-tag::after{width:24px}
   .subhead{margin-bottom:48px}
   .proof{grid-template-columns:repeat(2,1fr); max-width:none}
   .proof-item{padding:20px 12px; border-bottom:1px solid var(--line)}
   .proof-item:nth-child(2){border-right:none}
   .proof-item:nth-child(3), .proof-item:nth-child(4){border-bottom:none}
   .proof-item:nth-child(4){border-right:none}
-  .cta{padding:24px 32px; font-size:16px; gap:16px; width:100%; justify-content:center; letter-spacing:1.5px}
+  .cta{padding:24px 36px; font-size:18px; gap:18px; width:100%; justify-content:center; letter-spacing:2px}
   .cta-arrow{font-size:22px}
   .cta-corner.bl, .cta-corner.br{bottom:38px}
-  .bg-word{font-size:280px; right:-60px}
+  .bg-word-left{font-size:160px; left:-30px}
+  .bg-word-right{font-size:150px}
 }
 
 /* Reveal animation */
@@ -369,22 +384,8 @@ h1.hero-title .accent::after{
 <div class="grid-overlay"></div>
 <div class="scan-lines"></div>
 <div class="noise"></div>
-
-<!-- Mongolian-inspired geometric ornament (subtle, abstract) -->
-<svg class="ornament" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#b6ff3c" stroke-width="0.6">
-  <circle cx="300" cy="300" r="280"/>
-  <circle cx="300" cy="300" r="220"/>
-  <circle cx="300" cy="300" r="160"/>
-  <!-- Endless knot inspired motif -->
-  <path d="M300 140 L380 220 L300 300 L220 220 Z M300 300 L380 380 L300 460 L220 380 Z M140 300 L220 220 L300 300 L220 380 Z M300 300 L380 220 L460 300 L380 380 Z"/>
-  <!-- Cross lines -->
-  <line x1="20" y1="300" x2="580" y2="300"/>
-  <line x1="300" y1="20" x2="300" y2="580"/>
-  <line x1="100" y1="100" x2="500" y2="500"/>
-  <line x1="500" y1="100" x2="100" y2="500"/>
-</svg>
-
-<div class="bg-word">edge</div>
+<div class="bg-word-left">ИЛ</div>
+<div class="bg-word-right">ЭЗЭГНЭ</div>
 
 <!-- Top bar -->
 <header class="topbar">
@@ -392,12 +393,12 @@ h1.hero-title .accent::after{
   <div class="topbar-meta">
     <div><span class="dot"></span>SYSTEM ONLINE</div>
     <div>v3.21 · BUILD 0519</div>
-    <div>ULAANBAATAR · 24/7</div>
+    <div>24/7 · ОНЛАЙН</div>
   </div>
 </header>
 
 <!-- Side vertical labels -->
-<div class="vlabel-left">BUILT FOR PROFESSIONALS</div>
+<div class="vlabel-left">МЭРГЭЖЛИЙН ТҮВШИН</div>
 <div class="vlabel-right">PRIVATE · INVITE ONLY</div>
 
 <!-- HERO -->
@@ -408,16 +409,17 @@ h1.hero-title .accent::after{
   <span class="hero-frame br"></span>
 
   <div class="hero-inner">
-    <div class="eyebrow reveal d1">● PRIVATE BETA · INVITE ONLY</div>
+    <div class="eyebrow reveal d1">PRIVATE BETA · УРИЛГААР</div>
 
     <h1 class="hero-title reveal d2">
-      <span class="top-line">Dominate The Tables</span>
-      <span class="accent">With AI</span>
+      <span class="jp-large">AI-аар ширээг</span>
+      <span class="accent">эзэгнэ</span>
     </h1>
+    <span class="en-tag reveal d3">DOMINATE THE TABLES WITH AI</span>
 
     <p class="subhead reveal d3">
-      <strong>Real-time analysis. GTO solutions. Routine automation.</strong>
-      A private AI built for serious players who maximize EV in cash games and MTTs — without grinding.
+      <strong>Бодит цагийн анализ, GTO шийдэл, давтагдах үйлдлийн автоматжуулалт.</strong>
+      Cash game болон MTT-д EV-г дээд зэргээр өсгөхийг эрмэлздэг нухацтай тоглогчдод зориулсан хувийн AI.
     </p>
 
     <div class="cta-wrap reveal d4">
@@ -426,28 +428,28 @@ h1.hero-title .accent::after{
       <span class="cta-corner bl"></span>
       <span class="cta-corner br"></span>
       <a class="cta" href="https://t.me/AiFarmPoker" target="_blank" rel="noopener">
-        Get Access
+        Хандалт авах
         <span class="cta-arrow">→</span>
       </a>
-      <span class="cta-sub">INSTANT ACCESS VIA TELEGRAM</span>
+      <span class="cta-jp-sub">TELEGRAM-ААР ШУУД ХАНДАЛТ</span>
     </div>
 
     <div class="proof reveal d5">
       <div class="proof-item">
         <div class="proof-num">1,200+</div>
-        <div class="proof-label">Active<br/>Users</div>
+        <div class="proof-label">ИДЭВХТЭЙ<br/>ХЭРЭГЛЭГЧ</div>
       </div>
       <div class="proof-item">
         <div class="proof-num">$4.2M+</div>
-        <div class="proof-label">Tracked<br/>Winnings</div>
+        <div class="proof-label">БҮРТГЭГДСЭН<br/>ХОЖЛОГО</div>
       </div>
       <div class="proof-item">
         <div class="proof-num">NL50→5K</div>
-        <div class="proof-label">Stakes<br/>Supported</div>
+        <div class="proof-label">ДЭМЖИГДСЭН<br/>STAKES</div>
       </div>
       <div class="proof-item">
-        <div class="proof-num">Major Rooms</div>
-        <div class="proof-label">Full<br/>Support</div>
+        <div class="proof-num">ГОЛ РҮҮМ</div>
+        <div class="proof-label">БҮРЭН<br/>ДЭМЖЛЭГ</div>
       </div>
     </div>
   </div>
