@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AiFarm/Poker — Мэргэжлийн тоглогчдод зориулсан хувийн AI</title>
+<title>AiFarm/Poker — Чамайн оронд тоглодог AI бот</title>
 
 <!-- Meta Pixel Code -->
 <script>
@@ -147,7 +147,7 @@ html,body{
 /* ===== Hero — full-width centered ===== */
 .hero{
   position:relative; min-height:100vh;
-  padding:140px 48px 80px;
+  padding:130px 48px 70px;
   display:flex; flex-direction:column;
   align-items:center; justify-content:center;
   text-align:center;
@@ -183,7 +183,7 @@ html,body{
   z-index:2;
 }
 
-.hero-inner{position:relative; z-index:3; max-width:980px; width:100%}
+.hero-inner{position:relative; z-index:3; max-width:1040px; width:100%}
 
 .eyebrow{
   display:inline-flex; align-items:center; gap:14px;
@@ -191,7 +191,7 @@ html,body{
   color:var(--neon); text-transform:uppercase;
   padding:11px 22px; border:1px solid rgba(182,255,60,.35);
   background:rgba(182,255,60,.05);
-  margin-bottom:48px;
+  margin-bottom:36px;
   position:relative;
 }
 .eyebrow::before{
@@ -204,18 +204,23 @@ html,body{
   width:10px; height:10px; border-top:1px solid var(--neon); border-right:1px solid var(--neon);
 }
 
+/* === DIRECT OFFER TITLE === */
 h1.hero-title{
   font-family:'Noto Serif', serif;
   font-weight:800;
-  font-size: clamp(48px, 7.5vw, 116px);
-  line-height:1.02;
-  letter-spacing:-1px;
-  margin-bottom:36px;
+  font-size: clamp(44px, 7vw, 108px);
+  line-height:1.0;
+  letter-spacing:-1.5px;
+  margin-bottom:28px;
 }
-h1.hero-title .jp-large{
+h1.hero-title .line-1{
   display:block;
   background: linear-gradient(180deg, #ffffff 0%, #9fb1c8 100%);
   -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+h1.hero-title .line-2{
+  display:block;
+  color:var(--ink);
 }
 h1.hero-title .accent{
   display:inline-block; color:var(--neon);
@@ -223,14 +228,14 @@ h1.hero-title .accent{
   position:relative;
 }
 h1.hero-title .accent::after{
-  content:""; position:absolute; left:0; bottom:-10px; width:100%; height:3px;
+  content:""; position:absolute; left:0; bottom:-8px; width:100%; height:3px;
   background:linear-gradient(90deg, transparent, var(--neon), transparent);
 }
 
 .en-tag{
   font-family:'JetBrains Mono', monospace;
-  font-size:14px; letter-spacing:6px; color:var(--ink-mute);
-  text-transform:uppercase; margin-bottom:44px;
+  font-size:13px; letter-spacing:5px; color:var(--ink-mute);
+  text-transform:uppercase; margin-bottom:40px;
   display:inline-flex; align-items:center; gap:18px;
 }
 .en-tag::before,
@@ -238,18 +243,80 @@ h1.hero-title .accent::after{
   content:""; width:50px; height:1px; background:var(--ink-mute);
 }
 
+/* === INCOME HIGHLIGHT BLOCK === */
+.income-block{
+  display:flex; align-items:center; justify-content:center;
+  gap:0;
+  margin:0 auto 48px;
+  max-width:880px;
+  position:relative;
+  border:1px solid var(--line-2);
+  background:linear-gradient(180deg, rgba(11,15,20,.6), rgba(7,9,12,.6));
+  backdrop-filter:blur(4px);
+}
+.income-block::before, .income-block::after{
+  content:""; position:absolute; width:14px; height:14px;
+  border:1px solid var(--neon);
+}
+.income-block::before{top:-7px; left:-7px; border-right:none; border-bottom:none}
+.income-block::after{bottom:-7px; right:-7px; border-left:none; border-top:none}
+
+.income-side{
+  flex:1; padding:28px 24px; text-align:center;
+}
+.income-side.middle{
+  flex:1.4;
+  border-left:1px solid var(--line-2);
+  border-right:1px solid var(--line-2);
+  background:rgba(182,255,60,.03);
+  position:relative;
+}
+.income-side.middle::before{
+  content:""; position:absolute; top:0; left:50%; transform:translateX(-50%);
+  width:60%; height:1px;
+  background:linear-gradient(90deg, transparent, var(--neon), transparent);
+}
+.income-side.middle::after{
+  content:""; position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+  width:60%; height:1px;
+  background:linear-gradient(90deg, transparent, var(--neon), transparent);
+}
+
+.income-label{
+  font-family:'JetBrains Mono', monospace; font-size:10px;
+  letter-spacing:2.5px; color:var(--ink-mute);
+  text-transform:uppercase; margin-bottom:10px;
+}
+.income-value{
+  font-family:'Noto Serif', serif; font-weight:800;
+  font-size:clamp(22px, 2.6vw, 38px);
+  color:var(--ink); line-height:1;
+  letter-spacing:-.5px;
+}
+.income-side.middle .income-value{
+  color:var(--neon);
+  text-shadow:0 0 24px rgba(182,255,60,.4);
+  font-size:clamp(28px, 3.4vw, 52px);
+}
+.income-sub{
+  font-family:'JetBrains Mono', monospace; font-size:10px;
+  letter-spacing:1.5px; color:var(--ink-dim); margin-top:8px;
+  text-transform:uppercase;
+}
+
 .subhead{
   font-family:'Noto Sans', sans-serif; font-weight:300;
-  font-size: clamp(16px, 1.35vw, 20px);
-  line-height:1.85; color:var(--ink-dim);
-  max-width:760px;
-  margin:0 auto 64px;
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height:1.75; color:var(--ink-dim);
+  max-width:680px;
+  margin:0 auto 56px;
   letter-spacing:.3px;
 }
 .subhead strong{color:var(--ink); font-weight:500}
+.subhead .hl{color:var(--neon); font-weight:500}
 
 /* ===== CTA — MAXED OUT ===== */
-.cta-wrap{position:relative; display:inline-block; margin-bottom:64px}
+.cta-wrap{position:relative; display:inline-block; margin-bottom:60px}
 .cta{
   display:inline-flex; align-items:center; gap:32px;
   padding:38px 76px;
@@ -344,17 +411,25 @@ h1.hero-title .accent::after{
   .hero-frame{width:50px; height:50px}
   .hero-frame.tl, .hero-frame.tr{top:110px}
   .hero-frame.bl, .hero-frame.br{bottom:40px}
+  .income-block{max-width:none}
 }
 @media (max-width: 640px){
   .topbar{padding:18px 20px}
   .brand-name{font-size:18px}
-  .hero{padding:120px 20px 50px}
+  .hero{padding:110px 20px 50px}
   .hero-frame{display:none}
-  .eyebrow{font-size:10px; padding:9px 16px; margin-bottom:36px}
-  h1.hero-title{margin-bottom:24px}
-  .en-tag{font-size:11px; letter-spacing:4px; margin-bottom:32px}
+  .eyebrow{font-size:10px; padding:9px 16px; margin-bottom:28px}
+  h1.hero-title{margin-bottom:20px}
+  .en-tag{font-size:11px; letter-spacing:4px; margin-bottom:28px}
   .en-tag::before, .en-tag::after{width:24px}
-  .subhead{margin-bottom:48px}
+  .income-block{flex-direction:column; margin-bottom:36px}
+  .income-side{padding:18px 16px}
+  .income-side.middle{
+    border-left:none; border-right:none;
+    border-top:1px solid var(--line-2);
+    border-bottom:1px solid var(--line-2);
+  }
+  .subhead{margin-bottom:40px}
   .proof{grid-template-columns:repeat(2,1fr); max-width:none}
   .proof-item{padding:20px 12px; border-bottom:1px solid var(--line)}
   .proof-item:nth-child(2){border-right:none}
@@ -375,6 +450,7 @@ h1.hero-title .accent::after{
 .reveal.d3{transition-delay:.4s}
 .reveal.d4{transition-delay:.55s}
 .reveal.d5{transition-delay:.7s}
+.reveal.d6{transition-delay:.85s}
 </style>
 </head>
 
@@ -384,8 +460,8 @@ h1.hero-title .accent::after{
 <div class="grid-overlay"></div>
 <div class="scan-lines"></div>
 <div class="noise"></div>
-<div class="bg-word-left">ИЛ</div>
-<div class="bg-word-right">ЭЗЭГНЭ</div>
+<div class="bg-word-left">БОТ</div>
+<div class="bg-word-right">МӨНГӨ</div>
 
 <!-- Top bar -->
 <header class="topbar">
@@ -398,7 +474,7 @@ h1.hero-title .accent::after{
 </header>
 
 <!-- Side vertical labels -->
-<div class="vlabel-left">МЭРГЭЖЛИЙН ТҮВШИН</div>
+<div class="vlabel-left">AUTOMATED · HANDS-FREE</div>
 <div class="vlabel-right">PRIVATE · INVITE ONLY</div>
 
 <!-- HERO -->
@@ -412,29 +488,49 @@ h1.hero-title .accent::after{
     <div class="eyebrow reveal d1">PRIVATE BETA · УРИЛГААР</div>
 
     <h1 class="hero-title reveal d2">
-      <span class="jp-large">AI-аар ширээг</span>
-      <span class="accent">эзэгнэ</span>
+      <span class="line-1">AI бот чиний оронд</span>
+      <span class="line-2">тоглож <span class="accent">мөнгө олно</span></span>
     </h1>
-    <span class="en-tag reveal d3">DOMINATE THE TABLES WITH AI</span>
+    <span class="en-tag reveal d3">AI PLAYS · YOU EARN</span>
 
-    <p class="subhead reveal d3">
-      <strong>Бодит цагийн анализ, GTO шийдэл, давтагдах үйлдлийн автоматжуулалт.</strong>
-      Cash game болон MTT-д EV-г дээд зэргээр өсгөхийг эрмэлздэг нухацтай тоглогчдод зориулсан хувийн AI.
+    <!-- DIRECT INCOME OFFER -->
+    <div class="income-block reveal d4">
+      <div class="income-side">
+        <div class="income-label">Хөрөнгө оруулалт</div>
+        <div class="income-value">$0</div>
+        <div class="income-sub">Эхлэхэд төлбөргүй</div>
+      </div>
+      <div class="income-side middle">
+        <div class="income-label">Сард олох орлого</div>
+        <div class="income-value">$2,000 — $8,000</div>
+        <div class="income-sub">Дундаж хэрэглэгчийн өгөгдөл</div>
+      </div>
+      <div class="income-side">
+        <div class="income-label">Чиний оролцоо</div>
+        <div class="income-value">0 цаг</div>
+        <div class="income-sub">Бот бүгдийг хийнэ</div>
+      </div>
+    </div>
+
+    <p class="subhead reveal d4">
+      <strong>Бүрэн автомат AI бот</strong> чиний өмнөөс ширээний ард сууж,
+      <span class="hl">24/7 ажиллан</span> орлого олж өгнө. Cash game болон MTT-д
+      туршигдсан, ил гаргахгүй, аюулгүй. Чи зөвхөн орлогоо хүлээж ав.
     </p>
 
-    <div class="cta-wrap reveal d4">
+    <div class="cta-wrap reveal d5">
       <span class="cta-corner tl"></span>
       <span class="cta-corner tr"></span>
       <span class="cta-corner bl"></span>
       <span class="cta-corner br"></span>
-      <a class="cta" href="https://t.me/AiFarmPoker" target="_blank" rel="noopener">
-        Хандалт авах
+      <a class="cta" href="https://t.me/AiFarm_SupportOfficial" target="_blank" rel="noopener">
+        Ботыг авах
         <span class="cta-arrow">→</span>
       </a>
-      <span class="cta-jp-sub">TELEGRAM-ААР ШУУД ХАНДАЛТ</span>
+      <span class="cta-jp-sub">TELEGRAM-ААР МЕНЕЖЕРТЭЙ ХОЛБОГД</span>
     </div>
 
-    <div class="proof reveal d5">
+    <div class="proof reveal d6">
       <div class="proof-item">
         <div class="proof-num">1,200+</div>
         <div class="proof-label">ИДЭВХТЭЙ<br/>ХЭРЭГЛЭГЧ</div>
@@ -448,8 +544,8 @@ h1.hero-title .accent::after{
         <div class="proof-label">ДЭМЖИГДСЭН<br/>STAKES</div>
       </div>
       <div class="proof-item">
-        <div class="proof-num">ГОЛ РҮҮМ</div>
-        <div class="proof-label">БҮРЭН<br/>ДЭМЖЛЭГ</div>
+        <div class="proof-num">24/7</div>
+        <div class="proof-label">БОТ<br/>АЖИЛЛАЖ БАЙНА</div>
       </div>
     </div>
   </div>
