@@ -463,5 +463,20 @@ window.addEventListener('load', ()=>{
 });
 </script>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const ctaButton = document.querySelector('.cta');
+
+  if (ctaButton) {
+    ctaButton.addEventListener('click', function () {
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead');
+      }
+    });
+  }
+});
+</script>
+
 </body>
 </html>
